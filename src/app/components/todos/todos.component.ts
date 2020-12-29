@@ -11,10 +11,13 @@ export class TodosComponent implements OnInit {
 
   todos:Todo[] = [];
 
+  //we initialise our services in the constructor thorough dependency injection
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
-    this.todos = this.todoService.getTodos();
+    this.todoService.getTodos().subscribe(mytodos => {
+      this.todos = mytodos;
+    });
   }
 
 }
