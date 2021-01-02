@@ -37,4 +37,8 @@ export class TodoService {
     return this.client.delete(url, httpOptions);
   }
 
+  addTodo(todo:Todo) : Observable<Todo> {
+    return this.client.post<Todo>(this.todosUrl, todo, httpOptions);
+  }
+
 }
